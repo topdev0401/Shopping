@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %} Loggedin Contact {% endblock %}
+{% block body %}
+<div class="container my-3">
+    <h2>Contact Us</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-floating mt-2">
+            <textarea class="form-control my-2" id="desc" name="desc" placeholder="Leave comment here" style="height: 100px"></textarea>
+            <label for='desc'>How May We Help You</label>
+        </div>
+        <button type='submit' class="btn btn-primary mt-4">Submit</button>
+    </form>
+</div>
+{% endblock %}
+{% block js %}
+<script>
+    {% if alert %}
+    alert("We will contact you soon!!!")
+    document.location = '/'
+    {% endif %}
+</script>
+{% endblock %}
